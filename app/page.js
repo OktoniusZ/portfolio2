@@ -10,6 +10,7 @@ import {
   faBriefcase,
   faTasks,
   faLifeRing,
+  faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons"; // Importing required FontAwesome icons
 
 import Image from "next/image";
@@ -138,7 +139,7 @@ export default function Home() {
                   className="text-gray-500 hover:text-gray-700 text-4xl md:text-5xl"
                 />
               </div>
-              <button className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline items-center">
+              <button className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:shadow-outline items-center">
                 Explore Now
                 <FontAwesomeIcon
                   icon={faTelegramPlane}
@@ -170,7 +171,183 @@ export default function Home() {
         </div>
       </div>
 
-      
+      {/* About Me Page */}
+      <div>
+        <div className="bg-gray-100">
+          <h1 className="text-center text-5xl font-bold mb-2">About Me</h1>
+          <p className="bg-gray-100 text-wrap text-lg text-center md:text-xl text-gray-700">
+            My Introduction
+          </p>
+        </div>
+        <div className="bg-gray-100 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center">
+            {/* Image Section */}
+            <div className="lg:w-1/2 mb-10 lg:mb-0">
+              <img
+                src="https://images.unsplash.com/photo-1707343848552-893e05dba6ac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Profile"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+            {/* Information Section */}
+            <div className="lg:w-1/2 lg:ml-10 flex flex-col">
+              {/* Small Boxes Section */}
+              <div className="flex justify-between mb-6">
+                {/* Box 1: Experience */}
+                <div className="bg-white rounded-lg shadow-lg p-4 w-1/3 flex flex-col items-center">
+                  <FontAwesomeIcon
+                    icon={faBriefcase}
+                    className="text-3xl text-gray-600 mb-2"
+                  />
+                  <h2 className="text-lg font-semibold mb-2">Experience</h2>
+                  <p className="text-gray-700">1+ years</p>
+                </div>
+                {/* Box 2: Completed Projects */}
+                <div className="bg-white rounded-lg shadow-lg p-4 w-1/3 mx-2 flex flex-col items-center">
+                  <FontAwesomeIcon
+                    icon={faTasks}
+                    className="text-3xl text-gray-600 mb-2"
+                  />
+                  <h2 className="text-lg font-semibold mb-2">Completed</h2>
+                  <p className="text-gray-700">1+ years</p>
+                </div>
+                {/* Box 3: Support */}
+                <div className="bg-white rounded-lg shadow-lg p-4 w-1/3 flex flex-col items-center">
+                  <FontAwesomeIcon
+                    icon={faLifeRing}
+                    className="text-3xl text-gray-600 mb-2"
+                  />
+                  <h2 className="text-lg font-semibold mb-2">Support</h2>
+                  <p className="text-gray-700">1+ years</p>
+                </div>
+              </div>
+              {/* Description Section */}
+              <div className=" rounded-lg  p-6 mb-6">
+                <p className="text-gray-700 text-lg mb-4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  at lectus dignissim, ultrices est ut, laoreet est. Fusce
+                  commodo mi eget felis pretium tempus.
+                </p>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:shadow-outline">
+                  Download CV 
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Skills Page */}
+      <div className="bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+          {/* Title and Description */}
+          <div className="text-center mb-10">
+            <h1 className="text-center text-5xl font-bold mb-2">Skills</h1>
+            <p className="text-lg text-gray-700">
+              Unlocking the potential of web development, mastering both
+              frontend elegance and backend robustness, to craft seamless
+              digital experiences.
+            </p>
+          </div>
+          {/* Big Cards Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Frontend Card */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-xl font-semibold mb-4">
+                Frontend Development
+              </h2>
+              <p className="text-gray-700 mb-4">Skills:</p>
+              <ul className="list-none mb-4">
+                <li className="flex items-center mb-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-blue-600 mr-2"
+                  />{" "}
+                  HTML
+                  <p className="text-sm text-gray-500 ml-2">
+                    HyperText Markup Language
+                  </p>
+                </li>
+                <li className="flex items-center mb-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-blue-600 mr-2"
+                  />{" "}
+                  CSS
+                  <p className="text-sm text-gray-500 ml-2">
+                    Cascading Style Sheets
+                  </p>
+                </li>
+                <li className="flex items-center mb-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-blue-600 mr-2"
+                  />{" "}
+                  JavaScript
+                  <p className="text-sm text-gray-500 ml-2">JS</p>
+                </li>
+                <li className="flex items-center mb-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-blue-600 mr-2"
+                  />{" "}
+                  React
+                  <p className="text-sm text-gray-500 ml-2">
+                    JavaScript library for building user interfaces
+                  </p>
+                </li>
+              </ul>
+            </div>
+            {/* Backend Card */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-xl font-semibold mb-4">
+                Backend Development
+              </h2>
+              <p className="text-gray-700 mb-4">Skills:</p>
+              <ul className="list-none mb-4">
+                <li className="flex items-center mb-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-blue-600 mr-2"
+                  />{" "}
+                  Node.js
+                  <p className="text-sm text-gray-500 ml-2">
+                    JavaScript runtime built on Chrome's V8 JavaScript engine
+                  </p>
+                </li>
+                <li className="flex items-center mb-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-blue-600 mr-2"
+                  />{" "}
+                  Express
+                  <p className="text-sm text-gray-500 ml-2">
+                    Web application framework for Node.js
+                  </p>
+                </li>
+                <li className="flex items-center mb-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-blue-600 mr-2"
+                  />{" "}
+                  MongoDB
+                  <p className="text-sm text-gray-500 ml-2">NoSQL database</p>
+                </li>
+                <li className="flex items-center mb-2">
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className="text-blue-600 mr-2"
+                  />{" "}
+                  SQL
+                  <p className="text-sm text-gray-500 ml-2">
+                    Structured Query Language
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
