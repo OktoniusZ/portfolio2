@@ -11,8 +11,14 @@ import {
   faTasks,
   faLifeRing,
   faCheckCircle,
+  faArrowRight,
+  faPalette,
+  faExternalLinkAlt,
+  faDesktop,
+  faMobileAlt,
+  faServer,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons"; // Importing required FontAwesome icons
-
 import Image from "next/image";
 import React, { useState } from "react";
 import { PathParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
@@ -23,6 +29,43 @@ export default function Home() {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+  const [showModal, setShowModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+
+  const services = [
+    {
+      icon: faDesktop,
+      title: "Web",
+      description: "Designer",
+      moreDetails:
+        "Our web development services cover a wide range of technologies and platforms to bring your ideas to life.",
+    },
+    {
+      icon: faMobileAlt,
+      title: "Mobile",
+      description: "Designer",
+      moreDetails:
+        "We specialize in native and cross-platform mobile app development, ensuring optimal performance and user experience.",
+    },
+    {
+      icon: faPalette,
+      title: "Backend",
+      description: "Designer",
+      moreDetails:
+        "Our backend development services include database management, API integration, and server-side scripting to support your frontend needs.",
+    },
+  ];
+
+  const handleShowModal = (service) => {
+    setSelectedService(service);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedService(null);
+  };
+
   return (
     <>
       {/* Navigation Bar */}
@@ -229,7 +272,7 @@ export default function Home() {
                   commodo mi eget felis pretium tempus.
                 </p>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl focus:outline-none focus:shadow-outline">
-                  Download CV 
+                  Download CV
                 </button>
               </div>
             </div>
@@ -347,6 +390,114 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Services Page */}
+      <div className="bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl mb-2 font-semibold text-center">
+            Our Services
+          </h2>
+          <p className="bg-gray-100 mb-8  text-wrap text-lg text-center md:text-xl text-gray-700">
+            My Introduction
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-lg p-6">
+                <div className="flex items-center mb-4 mt-16">
+                  <FontAwesomeIcon
+                    icon={service.icon}
+                    size="2xl"
+                    className="text-black mr-2"
+                  />
+                  <FontAwesomeIcon icon="fa-light fa-palette" />
+                </div>
+                <p className="text-gray-700 text-xl">{service.title}</p>
+                <p className="text-gray-700 mb-4 text-xl">
+                  {service.description}
+                </p>
+                <button
+                  onClick={() => handleShowModal(service)}
+                  className=" text-gray-400 py-2 font-medium  rounded-full focus:outline-none focus:shadow-outline"
+                >
+                  Learn More
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="ml-2"
+                    size="lg"
+                  />{" "}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Modal */}
+        {selectedService && (
+          <div className="fixed inset-0 z-10 overflow-y-auto flex justify-center items-center">
+            <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+            <div className="bg-white rounded-lg shadow-lg p-8 z-20">
+              <div className="flex justify-end">
+                <button
+                  onClick={handleCloseModal}
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  <FontAwesomeIcon icon={faTimes} className="text-2xl" />
+                </button>
+              </div>
+              <div className="flex items-center mb-4">
+                <div>
+                  <h3 className="text-xl font-semibold">
+                    {selectedService.title}
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    {selectedService.moreDetails}
+                  </p>
+                  <ul className="list-none mb-4">
+                    <li className="flex items-center mb-2">
+                      <FontAwesomeIcon
+                        icon={faCheckCircle}
+                        className="text-blue-600 mr-2"
+                      />{" "}
+                      HTML
+                      <p className="text-sm text-gray-500 ml-2">
+                        HyperText Markup Language
+                      </p>
+                    </li>
+                    <li className="flex items-center mb-2">
+                      <FontAwesomeIcon
+                        icon={faCheckCircle}
+                        className="text-blue-600 mr-2"
+                      />{" "}
+                      CSS
+                      <p className="text-sm text-gray-500 ml-2">
+                        Cascading Style Sheets
+                      </p>
+                    </li>
+                    <li className="flex items-center mb-2">
+                      <FontAwesomeIcon
+                        icon={faCheckCircle}
+                        className="text-blue-600 mr-2"
+                      />{" "}
+                      JavaScript
+                      <p className="text-sm text-gray-500 ml-2">JS</p>
+                    </li>
+                    <li className="flex items-center mb-2">
+                      <FontAwesomeIcon
+                        icon={faCheckCircle}
+                        className="text-blue-600 mr-2"
+                      />{" "}
+                      React
+                      <p className="text-sm text-gray-500 ml-2">
+                        JavaScript library for building user interfaces
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
